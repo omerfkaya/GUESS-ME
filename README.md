@@ -20,6 +20,29 @@ Let assume word is WANTS.
 * If user's guess is WAKEN contract will return [0, 0, 2, 2, 2]. And user will know A is in right spot now.
 * If user's guess is PILLS contract will return [2, 2, 2, 2, 2]. And user will know any of the letter not in the word.
 
+## Deploy
+
+* Cloning the project and after cloning the project please run `yarn` in order to install all of the necessary packages for the project to run correctly. 
+* Building and Deploying the contract. The contract is located in under the assembly folders, after editing the contract you can run `yarn build` in order to build the contract and get the .wasm file.
+* If you want to build and deploy the contract for update, at the same time, you can run `yarn dev`
+* If you create a new contract, you can run `yarn firstDev`
+* After the contract is deployed, it is necessary to run the following command in the terminal in order to be able to run the contract `export CONTRACT=ACCOUNT_ID`
+
+## Functions
+
+* startNewRound(word: string)
+    * This function only can called from owner and creates a new round with new word.
+    * Example call `near call $CONTRACT startNewRound '{"word": "pinkpanter"}' --accountId $NEAR_ACCOUNT`
+* getGuessLeft()
+    * This function returns a users guess left
+    * Example call `near call $CONTRACT getGuessLeft '' --accountId $NEAR_ACCOUNT`
+* getWordLenght()
+    * This function returns current round's word lenght
+    * Example call `near call $CONTRACT getWordLenght '' --accountId $NEAR_ACCOUNT`
+* makeGuess(guess: string)
+    * This function called for making guesses by users
+    * Example call `near call $CONTRACT makeGuess '{"guess": "petepanter"}' --accountId $NEAR_ACCOUNT`
+
 ## Near Features
 
 * Saving users guess count on **PersistentUnorderedMap**.

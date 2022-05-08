@@ -17,7 +17,7 @@ export class Contract {
 
   @mutateState()
   makeGuess(guess: string): Array<i32> {
-    assert(this.guesses.contains(Context.sender) ? this.guesses.getSome(Context.sender) < 500 : true, "You exceed your guess limit!");
+    assert(this.guesses.contains(Context.sender) ? this.guesses.getSome(Context.sender) < 5 : true, "You exceed your guess limit!");
     this.guesses.set(Context.sender, this.guesses.contains(Context.sender) ? this.guesses.getSome(Context.sender) + 1 : 1);
     return this.game.makeGuess(guess);
   }

@@ -18,7 +18,7 @@ Let assume word is WANTS.
 
 * If user's guess is WEARY contract will return [0, 2, 1, 2, 2]. And user will know first letter is W and should move A to another spot.
 * If user's guess is WAKEN contract will return [0, 0, 2, 2, 2]. And user will know A is in right spot now.
-* If user's guess is PILLS contract will return [2, 2, 2, 2, 2]. And user will know any of the letter not in the word.
+* If user's guess is PILLS contract will return [2, 2, 2, 2, 0]. And user will know any of the letter not in the word.
 
 ## Deploy
 
@@ -43,9 +43,18 @@ Let assume word is WANTS.
     * This function called for making guesses by users
     * Example call `near call $CONTRACT makeGuess '{"guess": "petepanter"}' --accountId $NEAR_ACCOUNT`
 
+## Scripts 
+
+* You can simply run `scripts/deploy.sh` for deploying contract.
+
+* After deploy you should call this with contract id, `export CONTRACT=ACCOUNT_ID` after that you can simply call `scripts/run.sh` to test.
 ## Near Features
 
 * Saving users guess count on **PersistentUnorderedMap**.
 * Saving every word in rounds on **storage**
 * Make sure round starter is the owner with **Context**
 * Checking limits with **assert** 
+
+## Loom Video
+
+* It exceeds file limit of git so https://www.loom.com/share/11a31e9e8ff64d199189ee59156f9a73 this is the link of loom.
